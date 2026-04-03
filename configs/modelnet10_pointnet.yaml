@@ -1,0 +1,27 @@
+# PointNet config for ModelNet10
+# Uses same HDF5 data as ORION (voxels converted to 1024-point clouds)
+# Adam optimizer with step decay (standard PointNet training)
+
+model:
+  arch: pointnet
+  num_classes: 10
+  num_points: 1024
+  use_feature_transform: true
+
+data:
+  train_hdf5_list: datasets/modelnet10/hdf5/train_allrot_shuffled/train.hdf5.txt
+  val_hdf5_list: datasets/modelnet10/hdf5/test_singlerandrot/test.hdf5.txt
+
+training:
+  batch_size: 32
+  val_batch_size: 908
+  num_epochs: 50
+  lr: 0.001
+  weight_decay: 0.0001
+  label_smoothing: 0.0
+  lr_step_size: 20
+  lr_gamma: 0.5
+  feature_reg_weight: 0.001
+  save_dir: checkpoints/modelnet10_pointnet
+  save_every: 10
+  num_workers: 4

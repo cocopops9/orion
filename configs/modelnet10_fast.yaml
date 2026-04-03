@@ -1,0 +1,35 @@
+# ORION Fast config for ModelNet10
+# Optimal: label_smoothing=0.01
+
+model:
+  arch: fast
+  num_classes: 10
+  num_orientations: 105
+
+data:
+  train_hdf5_list: datasets/modelnet10/hdf5/train_allrot_shuffled/train.hdf5.txt
+  val_hdf5_list: datasets/modelnet10/hdf5/test_singlerandrot/test.hdf5.txt
+
+augmentation:
+  train:
+    offset_from: [0, 0, 0]
+    offset_to: [4, 4, 4]
+  test:
+    offset_from: [2, 2, 2]
+    offset_to: [2, 2, 2]
+
+training:
+  batch_size: 64
+  val_batch_size: 908
+  num_epochs: 50
+  lr: 0.02
+  momentum: 0.9
+  weight_decay: 0.0005
+  gamma: 0.5
+  label_smoothing: 0.01
+  scheduler: step
+  lr_step_size: 20
+  lr_gamma: 0.1
+  save_dir: checkpoints/modelnet10_fast
+  save_every: 10
+  num_workers: 4

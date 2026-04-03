@@ -1,0 +1,35 @@
+# ORION Basic config for ModelNet40 - CLUSTER VERSION
+# Uses /ext/ storage for training data
+
+model:
+  arch: basic
+  num_classes: 40
+  num_orientations: 189
+
+data:
+  train_hdf5_list: datasets/modelnet40/hdf5/train_allrot_shuffled/train.hdf5.txt
+  val_hdf5_list: datasets/modelnet40/hdf5/test_singlerandrot/test.hdf5.txt
+
+augmentation:
+  train:
+    offset_from: [0, 0, 0]
+    offset_to: [4, 4, 4]
+  test:
+    offset_from: [2, 2, 2]
+    offset_to: [2, 2, 2]
+
+training:
+  batch_size: 32
+  val_batch_size: 128
+  num_epochs: 50
+  lr: 0.01
+  momentum: 0.9
+  weight_decay: 0.0005
+  gamma: 0.5
+  label_smoothing: 0.0
+  scheduler: step
+  lr_step_size: 20
+  lr_gamma: 0.1
+  save_dir: checkpoints/modelnet40_basic
+  save_every: 10
+  num_workers: 4

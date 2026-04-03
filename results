@@ -1,0 +1,5 @@
+mn10 fast: 93.50%
+mn40 fast: 86.63%
+param count: 482K/489K
+mn10 fast training time: 351.0s
+mn40 fast training time: 825.4s

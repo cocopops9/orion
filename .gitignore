@@ -1,0 +1,26 @@
+# Datasets (downloaded via setup_datasets.sh)
+datasets/ModelNet10/
+datasets/ModelNet40/
+datasets/modelnet10/
+datasets/modelnet40/
+datasets/modelnet10_voxelized/
+datasets/modelnet40_voxelized/
+datasets/modelnet10_bin/
+datasets/modelnet40_bin/
+datasets/modelnet40_auto_aligned/
+datasets/modelnet40_manually_aligned/
+datasets/__MACOSX/
+datasets/*.zip
+datasets/*.tar.gz
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Checkpoints (too large)
+checkpoints/*.pt
+
+# Logs
+*.log
